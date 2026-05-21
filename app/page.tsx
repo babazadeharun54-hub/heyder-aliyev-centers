@@ -1,27 +1,27 @@
 const events = [
   {
-    date: "24",
+    day: "24",
     month: "MAY",
     type: "Konfrans",
     title: "Heydər Əliyev və müasir Azərbaycan",
-    center: "Bakı, Heydər Əliyev Mərkəzi",
+    center: "Bakı Heydər Əliyev Mərkəzi",
   },
   {
-    date: "25",
+    day: "25",
     month: "MAY",
     type: "Sərgi",
     title: "Zəfərimiz əbədidir",
     center: "Gəncə Heydər Əliyev Mərkəzi",
   },
   {
-    date: "27",
+    day: "27",
     month: "MAY",
     type: "Kino",
     title: "Azərbaycan kinosu günləri",
     center: "Naxçıvan Heydər Əliyev Mərkəzi",
   },
   {
-    date: "28",
+    day: "28",
     month: "MAY",
     type: "Təlim",
     title: "Rəqəmsal bacarıqlar workshop",
@@ -29,237 +29,283 @@ const events = [
   },
 ];
 
-const stats = [
-  ["61", "Heydər Əliyev Mərkəzi"],
-  ["500+", "Aylıq tədbirlər"],
-  ["1000+", "Layihə və proqram"],
-  ["1M+", "İştirakçı"],
-];
-
 const news = [
-  "Gəncə Heydər Əliyev Mərkəzində yeni sərgi açıldı",
-  "Rəqəmsal dünyada təhlükəsizlik mövzusunda təlim keçirildi",
-  "Ulu Öndərin xatirəsi anıldı",
+  {
+    date: "20 MAY 2024",
+    title: "Gəncə Heydər Əliyev Mərkəzində yeni sərgi açıldı",
+  },
+  {
+    date: "18 MAY 2024",
+    title: "Rəqəmsal dünyada təhlükəsizlik mövzusunda təlim keçirildi",
+  },
+  {
+    date: "16 MAY 2024",
+    title: "Ulu Öndərin xatirəsi anıldı",
+  },
 ];
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-slate-50 text-white">
-      <section className="relative overflow-hidden bg-[#081324] pb-24">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_20%,#2563eb66,transparent_34%)]" />
-
-        <div className="relative mx-auto max-w-[1400px] px-6 py-6">
+    <main className="min-h-screen bg-slate-50 text-slate-950">
+      <section className="bg-[#081324] px-6 py-7 text-white">
+        <div className="mx-auto max-w-[1400px]">
           <nav className="flex items-center justify-between">
-            <div className="text-lg font-extrabold leading-5 tracking-wide">
+            <a href="/" className="text-lg font-extrabold leading-5">
               HEYDƏR ƏLİYEV
               <br />
               MƏRKƏZLƏRİ
+            </a>
+
+            <div className="hidden items-center gap-8 text-sm font-medium text-white/75 lg:flex">
+              <a href="/" className="text-white">
+                Ana səhifə
+              </a>
+
+              <a href="/centers" className="transition hover:text-white">
+                Mərkəzlər
+              </a>
+
+              <a href="/events" className="transition hover:text-white">
+                Tədbirlər
+              </a>
+
+              <a href="/projects" className="transition hover:text-white">
+                Layihələr
+              </a>
+
+              <a href="/news" className="transition hover:text-white">
+                Xəbərlər
+              </a>
+
+              <a href="/media" className="transition hover:text-white">
+                Media
+              </a>
+
+              <a href="/contact" className="transition hover:text-white">
+                Əlaqə
+              </a>
             </div>
 
-            <div className="hidden items-center gap-8 text-sm font-medium text-white/80 lg:flex">
-              <a className="text-white">Ana səhifə</a>
-              <a className="transition hover:text-white">Mərkəzlər</a>
-              <a className="transition hover:text-white">Tədbirlər</a>
-              <a className="transition hover:text-white">Layihələr</a>
-              <a className="transition hover:text-white">Xəbərlər</a>
-              <a className="transition hover:text-white">Media</a>
-              <a className="transition hover:text-white">Əlaqə</a>
-            </div>
-
-            <button className="rounded-xl bg-blue-600 px-5 py-2.5 text-sm font-semibold shadow-lg shadow-blue-600/25 transition hover:bg-blue-500">
+            <a
+              href="/login"
+              className="rounded-xl bg-blue-600 px-6 py-3 text-sm font-bold shadow-lg shadow-blue-600/25 transition hover:bg-blue-500"
+            >
               Daxil ol
-            </button>
+            </a>
           </nav>
 
-          <div className="grid min-h-[520px] items-center gap-12 pt-16 lg:grid-cols-2">
+          <div className="grid gap-12 py-20 lg:grid-cols-2 lg:items-center">
             <div>
-              <p className="mb-5 inline-flex rounded-full border border-blue-400/30 bg-blue-500/10 px-4 py-2 text-sm font-medium text-blue-200">
+              <p className="mb-6 inline-flex rounded-full border border-blue-400/30 bg-blue-500/10 px-4 py-2 text-sm text-blue-200">
                 Birlikdə gələcəyi qururuq
               </p>
 
-              <h1 className="max-w-2xl text-5xl font-extrabold leading-tight tracking-tight md:text-7xl">
+              <h1 className="max-w-3xl text-6xl font-extrabold leading-tight md:text-7xl">
                 Mədəniyyət hamımızı birləşdirir
               </h1>
 
-              <p className="mt-6 max-w-xl text-lg leading-8 text-white/75">
+              <p className="mt-7 max-w-2xl text-lg leading-8 text-white/70">
                 Heydər Əliyev Mərkəzləri ölkəmizin hər bir bölgəsində təhsil,
-                mədəniyyət və innovasiyanı vahid rəqəmsal platformada birləşdirir.
+                mədəniyyət və innovasiyanı vahid rəqəmsal platformada
+                birləşdirir.
               </p>
 
-              <div className="mt-9 flex flex-wrap gap-4">
-                <button className="rounded-xl bg-blue-600 px-6 py-3 font-semibold shadow-xl shadow-blue-600/25 transition hover:-translate-y-0.5 hover:bg-blue-500">
+              <div className="mt-10 flex flex-wrap gap-4">
+                <a
+                  href="/events"
+                  className="rounded-2xl bg-blue-600 px-7 py-4 font-bold text-white transition hover:bg-blue-500"
+                >
                   Tədbirləri kəşf et
-                </button>
+                </a>
 
-                <button className="rounded-xl border border-white/20 bg-white/5 px-6 py-3 font-semibold backdrop-blur transition hover:-translate-y-0.5 hover:bg-white/10">
+                <a
+                  href="/centers"
+                  className="rounded-2xl border border-white/15 bg-white/5 px-7 py-4 font-bold text-white transition hover:bg-white/10"
+                >
                   Mərkəzlər xəritəsi
-                </button>
+                </a>
               </div>
             </div>
 
-            <div className="rounded-[2rem] border border-white/10 bg-white/5 p-4 shadow-2xl shadow-black/30 backdrop-blur">
-              <div
-                className="relative h-[370px] overflow-hidden rounded-[1.5rem] bg-cover bg-center p-8"
-                style={{
-                  backgroundImage:
-                    "linear-gradient(90deg, rgba(8,19,36,.92), rgba(8,19,36,.35)), url('/hero.jpg')",
-                }}
-              >
-                <div className="absolute inset-0 bg-gradient-to-t from-[#081324] via-transparent to-transparent" />
+            <div
+              className="relative min-h-[420px] rounded-[36px] border border-white/10 bg-cover bg-center p-5 shadow-2xl"
+              style={{
+                backgroundImage:
+                  "linear-gradient(to top, rgba(8,19,36,.95), rgba(8,19,36,.35)), url('/hero.jpg')",
+              }}
+            >
+              <div className="absolute bottom-10 left-10 right-10">
+                <p className="text-sm text-white/60">Platforma</p>
 
-                <div className="relative flex h-full items-end">
-                  <div>
-                    <p className="text-sm text-white/70">Platforma</p>
-
-                    <h2 className="mt-2 max-w-md text-4xl font-extrabold leading-tight">
-                      61 mərkəz, vahid rəqəmsal ekosistem
-                    </h2>
-                  </div>
-                </div>
+                <h2 className="mt-3 max-w-xl text-4xl font-extrabold leading-tight">
+                  61 mərkəz, vahid rəqəmsal ekosistem
+                </h2>
               </div>
             </div>
           </div>
 
-          <div className="relative z-10 mt-4 grid gap-4 rounded-3xl border border-white/10 bg-white/5 p-6 shadow-2xl shadow-black/20 backdrop-blur md:grid-cols-4">
-            {stats.map((item) => (
-              <div
-                key={item[0]}
-                className="border-white/10 px-2 md:border-r last:border-0"
-              >
-                <p className="text-4xl font-extrabold">{item[0]}</p>
-                <p className="mt-2 text-sm text-white/65">{item[1]}</p>
+          <div className="grid overflow-hidden rounded-[28px] border border-white/10 bg-white/5 backdrop-blur md:grid-cols-4">
+            {[
+              ["61", "Heydər Əliyev Mərkəzi"],
+              ["500+", "Aylıq tədbirlər"],
+              ["1000+", "Layihə və proqram"],
+              ["1M+", "İştirakçı"],
+            ].map(([number, label]) => (
+              <div key={label} className="border-white/10 p-7 md:border-r">
+                <p className="text-4xl font-extrabold">{number}</p>
+                <p className="mt-2 text-sm text-white/50">{label}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="bg-slate-50 px-6 py-16 text-slate-950">
+      <section className="px-6 py-16">
         <div className="mx-auto max-w-[1400px]">
           <div className="mb-8 flex items-center justify-between">
-            <h2 className="text-3xl font-extrabold">Yaxınlaşan tədbirlər</h2>
-            <a className="text-sm font-bold text-blue-600">Hamısına bax →</a>
+            <h2 className="text-4xl font-extrabold">Yaxınlaşan tədbirlər</h2>
+
+            <a href="/events" className="text-sm font-bold text-blue-600">
+              Hamısına bax →
+            </a>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-            {events.map((event, index) => (
+          <div className="grid gap-6 lg:grid-cols-4">
+            {events.map((event) => (
               <div
                 key={event.title}
-                className="group overflow-hidden rounded-3xl bg-slate-900 shadow-xl transition hover:-translate-y-1 hover:shadow-2xl"
+                className="overflow-hidden rounded-[28px] bg-[#081324] shadow-xl transition hover:-translate-y-1 hover:shadow-2xl"
               >
-                <div className="relative h-52 bg-gradient-to-br from-slate-700 to-black p-5 text-white">
-                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_40%_20%,#2563eb55,transparent_35%)]" />
-                  <div className="absolute inset-0 bg-black/20" />
-
-                  <div className="relative w-fit rounded-xl bg-white px-3 py-2 text-center text-slate-950 shadow-lg">
-                    <p className="text-xl font-extrabold">{event.date}</p>
-                    <p className="text-xs font-semibold">{event.month}</p>
+                <div
+                  className="relative h-56 bg-cover bg-center p-5"
+                  style={{
+                    backgroundImage:
+                      "linear-gradient(to top, rgba(0,0,0,.92), rgba(8,19,36,.35)), url('/hero.jpg')",
+                  }}
+                >
+                  <div className="w-fit rounded-xl bg-white px-3 py-2 text-center text-[#081324] shadow-lg">
+                    <p className="text-xl font-extrabold leading-5">
+                      {event.day}
+                    </p>
+                    <p className="text-xs font-bold">{event.month}</p>
                   </div>
 
                   <div className="absolute bottom-5 left-5 right-5">
-                    <p className="mb-2 text-sm font-semibold text-blue-300">
+                    <p className="text-sm font-bold text-blue-300">
                       {event.type}
                     </p>
-                    <h3 className="text-xl font-extrabold leading-snug">
+
+                    <h3 className="mt-2 text-2xl font-extrabold leading-tight text-white">
                       {event.title}
                     </h3>
                   </div>
                 </div>
 
-                <div className="p-5 text-white">
+                <div className="bg-[#101a30] p-5 text-white">
                   <p className="text-sm text-white/60">{event.center}</p>
 
                   <div className="mt-5 flex items-center justify-between">
-                    <span className="text-sm text-white/50">
-                      +{120 - index * 18} iştirakçı
-                    </span>
-                    <button className="rounded-full bg-white/10 px-4 py-2 text-sm font-semibold transition group-hover:bg-blue-600">
+                    <span className="text-sm text-white/55">+120 iştirakçı</span>
+
+                    <a
+                      href="/events"
+                      className="rounded-full bg-white/10 px-5 py-2 text-sm font-bold transition hover:bg-blue-600"
+                    >
                       Ətraflı
-                    </button>
+                    </a>
                   </div>
                 </div>
               </div>
             ))}
           </div>
 
-          <div className="mt-16 grid gap-8 lg:grid-cols-[1.2fr_.8fr]">
+          <div className="mt-16 grid gap-10 lg:grid-cols-[1.5fr_1fr]">
             <div>
-              <div className="mb-5 flex items-center justify-between">
-                <h2 className="text-3xl font-extrabold">Mərkəzlər xəritəsi</h2>
-                <a className="text-sm font-bold text-blue-600">Xəritədə bax →</a>
+              <div className="mb-6 flex items-center justify-between">
+                <h2 className="text-4xl font-extrabold">Mərkəzlər xəritəsi</h2>
+
+                <a href="/centers" className="text-sm font-bold text-blue-600">
+                  Xəritədə bax →
+                </a>
               </div>
 
-              <div className="relative h-[380px] overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-xl">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,#dbeafe,transparent_30%),linear-gradient(135deg,#eff6ff,#ffffff)]" />
-
+              <div className="relative h-[360px] rounded-[32px] bg-blue-50 shadow-xl">
                 {[
-                  "left-[18%] top-[24%]",
-                  "left-[35%] top-[35%]",
-                  "left-[52%] top-[28%]",
-                  "left-[68%] top-[42%]",
-                  "left-[42%] top-[58%]",
-                  "left-[75%] top-[20%]",
-                  "left-[25%] top-[68%]",
-                ].map((pos) => (
+                  ["left-[18%] top-[28%]", "Bakı"],
+                  ["left-[36%] top-[42%]", "Gəncə"],
+                  ["left-[55%] top-[34%]", "Şəki"],
+                  ["left-[72%] top-[25%]", "Quba"],
+                  ["left-[24%] top-[65%]", "Lənkəran"],
+                ].map(([pos, label]) => (
                   <div
-                    key={pos}
-                    className={`absolute ${pos} h-5 w-5 rounded-full bg-blue-600 shadow-lg shadow-blue-600/40 ring-4 ring-blue-100`}
-                  />
+                    key={label}
+                    className={`absolute ${pos} group cursor-pointer`}
+                  >
+                    <div className="h-5 w-5 rounded-full bg-blue-600 shadow-lg shadow-blue-600/40 ring-4 ring-blue-200" />
+                    <div className="pointer-events-none absolute left-6 top-0 hidden rounded-xl bg-white px-4 py-2 text-sm font-bold shadow-xl group-hover:block">
+                      {label}
+                    </div>
+                  </div>
                 ))}
-
-                <div className="absolute left-[42%] top-[42%] rounded-2xl bg-white p-5 shadow-2xl">
-                  <p className="font-bold">Gəncə Heydər Əliyev Mərkəzi</p>
-                  <p className="mt-1 text-sm text-slate-500">Daha ətraflı →</p>
-                </div>
               </div>
             </div>
 
             <div>
-              <div className="mb-5 flex items-center justify-between">
-                <h2 className="text-3xl font-extrabold">Son xəbərlər</h2>
-                <a className="text-sm font-bold text-blue-600">Hamısına bax →</a>
+              <div className="mb-6 flex items-center justify-between">
+                <h2 className="text-4xl font-extrabold">Son xəbərlər</h2>
+
+                <a href="/news" className="text-sm font-bold text-blue-600">
+                  Hamısına bax →
+                </a>
               </div>
 
-              <div className="rounded-3xl bg-white p-5 shadow-xl">
-                {news.map((item, index) => (
+              <div className="rounded-[32px] bg-white p-6 shadow-xl">
+                {news.map((item) => (
                   <div
-                    key={item}
-                    className="flex items-center gap-4 border-b border-slate-100 py-5 last:border-0"
+                    key={item.title}
+                    className="flex items-center gap-5 border-b border-slate-100 py-5 last:border-0"
                   >
-                    <div className="h-16 w-20 rounded-2xl bg-gradient-to-br from-blue-100 to-slate-200" />
+                    <div className="h-20 w-20 shrink-0 rounded-2xl bg-blue-100" />
 
-                    <div className="flex-1">
-                      <p className="text-xs font-semibold text-slate-400">
-                        {20 - index * 2} MAY 2024
+                    <div>
+                      <p className="text-xs font-bold text-slate-400">
+                        {item.date}
                       </p>
-                      <h3 className="mt-1 font-bold leading-snug">{item}</h3>
+
+                      <h3 className="mt-2 text-lg font-extrabold leading-snug">
+                        {item.title}
+                      </h3>
                     </div>
 
-                    <span className="text-blue-600">→</span>
+                    <a href="/news" className="ml-auto text-blue-600">
+                      →
+                    </a>
                   </div>
                 ))}
               </div>
             </div>
           </div>
 
-          <div className="mt-14 rounded-3xl bg-[#081324] p-8 text-white shadow-xl">
-            <div className="flex flex-col justify-between gap-6 md:flex-row md:items-center">
+          <div className="mt-16 rounded-[32px] bg-[#081324] p-10 text-white shadow-xl">
+            <div className="grid gap-8 lg:grid-cols-[1fr_420px] lg:items-center">
               <div>
-                <h2 className="text-3xl font-extrabold">
+                <h2 className="text-4xl font-extrabold">
                   Yeniliklərdən xəbərdar olun!
                 </h2>
-                <p className="mt-2 max-w-xl text-white/60">
+
+                <p className="mt-4 max-w-xl text-white/60">
                   Bülletenimizə abunə olun və ən son tədbir, layihə və
                   xəbərlərdən ilk siz xəbərdar olun.
                 </p>
               </div>
 
-              <div className="flex w-full max-w-md rounded-2xl border border-white/10 bg-white/5 p-2">
+              <div className="flex gap-3 rounded-2xl border border-white/10 bg-white/5 p-2">
                 <input
-                  className="flex-1 bg-transparent px-4 text-sm outline-none placeholder:text-white/40"
                   placeholder="E-poçt ünvanınızı daxil edin"
+                  className="w-full bg-transparent px-4 outline-none placeholder:text-white/40"
                 />
-                <button className="rounded-xl bg-blue-600 px-5 py-3 text-sm font-bold">
+
+                <button className="rounded-xl bg-blue-600 px-6 py-3 font-bold">
                   Abunə ol
                 </button>
               </div>
