@@ -104,7 +104,7 @@ export default function CenterDetailPage() {
 
       if (error) {
         console.error(error);
-        alert("Xəta baş verdi. Supabase table strukturunu yoxla.");
+        alert(`Xəta: ${error.message}`);
         return;
       }
 
