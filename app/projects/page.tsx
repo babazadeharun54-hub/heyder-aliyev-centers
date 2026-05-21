@@ -1,24 +1,28 @@
 const projects = [
   {
     title: "Rəqəmsal Gənclik Proqramı",
+    slug: "reqemsal-genclik",
     category: "Təhsil",
     description:
       "Regionlarda gənclərin rəqəmsal bacarıqlarını artırmaq üçün təlim və seminarlar.",
   },
   {
     title: "Mədəni İrs Məktəbi",
+    slug: "medeni-irs",
     category: "Mədəniyyət",
     description:
       "Məktəblilər üçün Azərbaycan tarixi, mədəniyyəti və irsi haqqında maarifləndirici proqram.",
   },
   {
     title: "Region Könüllüləri",
+    slug: "region-konulluleri",
     category: "Gənclər",
     description:
       "Heydər Əliyev Mərkəzlərində könüllü fəaliyyətin təşviqi və koordinasiyası.",
   },
   {
     title: "Ulu Öndər İrsi",
+    slug: "ulu-onder-irsi",
     category: "Tarix",
     description:
       "Heydər Əliyevin dövlətçilik irsinin regionlarda təbliği üçün tədbirlər silsiləsi.",
@@ -42,13 +46,16 @@ export default function ProjectsPage() {
               <a href="/centers">Mərkəzlər</a>
               <a href="/events">Tədbirlər</a>
               <a className="text-white">Layihələr</a>
-              <a>Xəbərlər</a>
-              <a>Media</a>
+              <a href="/news">Xəbərlər</a>
+              <a href="/media">Media</a>
             </div>
 
-            <button className="rounded-xl bg-blue-600 px-5 py-2.5 text-sm font-bold">
+            <a
+              href="/login"
+              className="rounded-xl bg-blue-600 px-5 py-2.5 text-sm font-bold"
+            >
               Daxil ol
-            </button>
+            </a>
           </nav>
 
           <div className="py-20">
@@ -88,9 +95,12 @@ export default function ProjectsPage() {
                   {project.description}
                 </p>
 
-                <button className="mt-8 rounded-2xl bg-[#081324] px-6 py-3 text-sm font-bold text-white transition hover:bg-blue-600">
+                <a
+                  href={`/projects/${project.slug}`}
+                  className="mt-8 inline-block rounded-2xl bg-[#081324] px-6 py-3 text-sm font-bold text-white transition hover:bg-blue-600"
+                >
                   Ətraflı bax
-                </button>
+                </a>
               </div>
             ))}
           </div>
