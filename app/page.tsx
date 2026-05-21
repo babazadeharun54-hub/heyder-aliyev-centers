@@ -87,11 +87,11 @@ export default function Home() {
             </div>
 
             <a
-              href="/login"
-              className="rounded-xl bg-blue-600 px-6 py-3 text-sm font-bold shadow-lg shadow-blue-600/25 transition hover:bg-blue-500"
-            >
-              Daxil ol
-            </a>
+  href="/admin/login"
+  className="rounded-xl bg-blue-600 px-6 py-3 text-sm font-bold shadow-lg shadow-blue-600/25 transition hover:bg-blue-500"
+>
+  Daxil ol
+</a>
           </nav>
 
           <div className="grid gap-12 py-20 lg:grid-cols-2 lg:items-center">
