@@ -1,15 +1,21 @@
 import type { Metadata } from "next";
-import { Poppins } from "next/font/google";
 import "./globals.css";
 
-const poppins = Poppins({
+import { Inter, Playfair_Display } from "next/font/google";
+
+const inter = Inter({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+  variable: "--font-inter",
+});
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-playfair",
 });
 
 export const metadata: Metadata = {
   title: "Heydər Əliyev Mərkəzləri",
-  description: "Azərbaycan üzrə mədəniyyət və tədbir platforması",
+  description: "Azərbaycan üzrə Heydər Əliyev Mərkəzləri platforması",
 };
 
 export default function RootLayout({
@@ -19,7 +25,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="az">
-      <body className={poppins.className}>{children}</body>
+      <body
+        className={`${inter.variable} ${playfair.variable} antialiased`}
+      >
+        {children}
+      </body>
     </html>
   );
 }

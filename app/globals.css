@@ -22,3 +22,10 @@ body {
 a {
   cursor: pointer;
 }
+.font-serif {
+  font-family: var(--font-playfair), serif;
+}
+
+body {
+  font-family: var(--font-inter), sans-serif;
+}
